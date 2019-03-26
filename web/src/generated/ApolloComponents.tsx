@@ -43,7 +43,7 @@ export type MutationDeleteBookArgs = {
 };
 
 export type Query = {
-  books?: Maybe<Array<Maybe<Book>>>;
+  books: Array<Book>;
 };
 
 export type CreateBookMutationVariables = {
@@ -77,11 +77,7 @@ export type UpdateBookMutation = { __typename?: "Mutation" } & {
 export type BooksQueryVariables = {};
 
 export type BooksQuery = { __typename?: "Query" } & {
-  books: Maybe<
-    Array<
-      Maybe<{ __typename?: "Book" } & Pick<Book, "id" | "title" | "author">>
-    >
-  >;
+  books: Array<{ __typename?: "Book" } & Pick<Book, "id" | "title" | "author">>;
 };
 
 import gql from "graphql-tag";

@@ -2,12 +2,12 @@ import { ApolloServer, gql } from "apollo-server";
 
 let books = [
   {
-    id: 1,
+    id: "1",
     title: "Harry Potter and the Chamber of Secrets",
     author: "J.K. Rowling"
   },
   {
-    id: 2,
+    id: "2",
     title: "Jurassic Park",
     author: "Michael Crichton"
   }
@@ -27,7 +27,7 @@ const typeDefs = gql`
   }
 
   type Query {
-    books: [Book]
+    books: [Book!]!
   }
 `;
 
@@ -36,7 +36,7 @@ type Resolver = (parent: any, args: any) => any;
 const resolvers: Record<string, Record<string, Resolver>> = {
   Mutation: {
     createBook: (_, { title, author }) => {
-      const book = { id: books.length + 1, title, author };
+      const book = { id: `${books.length + 1}`, title, author };
 
       books.push(book);
 
