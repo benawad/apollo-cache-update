@@ -1,0 +1,7 @@
+mutation CreateBook($title: String!, $author: String!) {
+  createBook(title: $title, author: $author) {
+    id
+    title
+    author
+  }
+}
